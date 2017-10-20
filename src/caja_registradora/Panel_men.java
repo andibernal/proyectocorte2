@@ -8,7 +8,6 @@ import java.util.LinkedHashMap;
 import javax.swing.*;
 import javax.swing.border.Border;
 
-
 public class Panel_men extends JPanel  implements ActionListener{
 	
 	
@@ -22,6 +21,7 @@ public class Panel_men extends JPanel  implements ActionListener{
 	VentanaInicial ventana;
 	Lista_clientes lista;
 	Panel_vis Panel_vis;
+	
 
 	
 	public Panel_men() {
@@ -137,22 +137,27 @@ public class Panel_men extends JPanel  implements ActionListener{
 			ventana.setVisible(true); 
 			
 			
+			
 		}
 				
 		
 		if(arg0.getSource()==b5) {
-			/*
+			
 			lista = new Lista_clientes();
 			ventana = new VentanaInicial();
 			ventana.getContentPane().add(lista, BorderLayout.CENTER);
+			ventana.obj_Panelvis.setVisible(false);
 			ventana.setVisible(true);
+			
+			
+			/*ventana = new VentanaInicial();
+			ventana.remove(Panel_vis);
+			ventana.obj_Lista_clientes.add(lista, BorderLayout.CENTER);
 			*/
 			
-			  ventana.remove(Panel_vis);
-			  ventana.add(lista, BorderLayout.CENTER);
-			  ventana.updateUI();
-		      ventana.repaint();
-		      
+			
+			 
+			  
 			
 		}
 		if(arg0.getSource()==b6);

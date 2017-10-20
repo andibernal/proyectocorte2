@@ -9,13 +9,13 @@ import javax.swing.*;
 public class VentanaInicial extends JFrame{
 	public LinkedHashMap listaPersona;
 	
-    Panel_vis obj_Panelvis;
+    
+	Panel_vis obj_Panelvis;
 	Panel_men obj_Panelmen;
 	Panel_con obj_Panelcon;
 	Panel_nombre obj_Panelnombre;
 	Panel_persona obj_Panelper;
 	Lista_clientes obj_Lista_clientes;
-	
 	Lista_clientes Listac;
 	
 	public VentanaInicial() {
@@ -56,7 +56,13 @@ public class VentanaInicial extends JFrame{
 		
 	}
 	
-	public static void repintar () {
+	public void repintar () {
+		  
+		  //VentanaInicial.remove(obj_Panelvis);
+		  //VentanaInicial.add(Lista_clientes, BorderLayout.CENTER);
+	      //VentanaInicial.repintar();
+		
+	   	  obj_Panelvis.add(this.obj_Panelper);
 			
 	}
 	
@@ -71,8 +77,5 @@ public class VentanaInicial extends JFrame{
 		
 	}
 
-	public void updateUI() {
-		// TODO Auto-generated method stub
-		
-	}
+	
 }
