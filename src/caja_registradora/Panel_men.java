@@ -8,24 +8,27 @@ import java.util.LinkedHashMap;
 import javax.swing.*;
 import javax.swing.border.Border;
 
+
 public class Panel_men extends JPanel  implements ActionListener{
+	
+	public LinkedHashMap listaPersona;
 	
 	
 	private GridBagConstraints c;
 	private Insets in;
 	private JButton b1,b2,b3,b4,b5,b6,b7,b8;
-	
+	Lista_clientes obj_Lista_clientes;
 	
 	
 	Panel_persona obj_Panelper;
 	VentanaInicial ventana;
-	Lista_clientes lista;
+	Lista_clientes Listac;
 	Panel_vis Panel_vis;
-	
 
 	
 	public Panel_men() {
 		
+		listaPersona = new LinkedHashMap();
 		
 		setLayout(new GridBagLayout());
 		Border borde1 = BorderFactory.createTitledBorder("Menu");
@@ -59,7 +62,7 @@ public class Panel_men extends JPanel  implements ActionListener{
 		c = new GridBagConstraints();
 		c.gridx=0;
 		c.gridy=2;
-        c.fill = GridBagConstraints.BOTH; 
+        	c.fill = GridBagConstraints.BOTH; 
         in = new Insets( 5, 10, 5, 10 );
         c.insets = in;	        
         add( b3,c);
@@ -131,11 +134,13 @@ public class Panel_men extends JPanel  implements ActionListener{
 			
 
 			
-			//obj_Panelper = new Panel_persona(this);
+			obj_Panelper = new Panel_persona(this);
 			ventana = new VentanaInicial();
+			ventana.obj_Panelvis.setVisible(false);
 			ventana.getContentPane().add(obj_Panelper, BorderLayout.CENTER);
-			ventana.setVisible(true); 
 			
+			ventana.setVisible(true);
+			//ventana.repintar ();
 			
 			
 		}
@@ -143,12 +148,15 @@ public class Panel_men extends JPanel  implements ActionListener{
 		
 		if(arg0.getSource()==b5) {
 			
-			lista = new Lista_clientes();
+			
+			Listac = new Lista_clientes();
 			ventana = new VentanaInicial();
-			ventana.getContentPane().add(lista, BorderLayout.CENTER);
+			ventana.getContentPane().add(Listac, BorderLayout.CENTER);
 			ventana.obj_Panelvis.setVisible(false);
 			ventana.setVisible(true);
 			
+			
+			//ventana.repintar();
 			
 			/*ventana = new VentanaInicial();
 			ventana.remove(Panel_vis);
@@ -168,7 +176,19 @@ public class Panel_men extends JPanel  implements ActionListener{
 		}
 		
 	}
+
 	
+	public void  agregarPersona(String _nombre, String _apellido) {//_referenciapersona     , int _cedula, int _edad, String _empresa, int _sueldo
+		Personas obj = new Personas(_nombre,_apellido);   //,_cedula,_edad,_empresa,_sueldo
+		listaPersona.put(_nombre, obj);
+		actualizarTabla();
+	}
 	
+	public void actualizarTabla() {
+		
+		Listac.refrescarLista(listaPersona);
+		JOptionPane.showMessageDialog(null,"Lista actuallizada. ","Mens",JOptionPane.INFORMATION_MESSAGE);
+	}
+
 
 }

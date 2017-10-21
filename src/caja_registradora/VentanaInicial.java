@@ -1,7 +1,6 @@
 package caja_registradora;
 
 import java.awt.*;
-import java.util.ArrayList;
 import java.util.*;
 import javax.swing.*;
 
@@ -9,17 +8,18 @@ import javax.swing.*;
 public class VentanaInicial extends JFrame{
 	public LinkedHashMap listaPersona;
 	
+	
     
 	Panel_vis obj_Panelvis;
 	Panel_men obj_Panelmen;
 	Panel_con obj_Panelcon;
 	Panel_nombre obj_Panelnombre;
 	Panel_persona obj_Panelper;
-	Lista_clientes obj_Lista_clientes;
 	Lista_clientes Listac;
 	
 	public VentanaInicial() {
 		super("Caja Registradora");
+		listaPersona = new LinkedHashMap();
 		inicio();
 		componente();
 		pack();
@@ -37,6 +37,9 @@ public class VentanaInicial extends JFrame{
 	
 	public void componente() {
 		
+		//obj_Panelper = new Panel_persona(this);
+		//add(obj_Panelper, BorderLayout.CENTER);
+		
 		obj_Panelnombre = new Panel_nombre();
 		add(obj_Panelnombre, BorderLayout.NORTH);
 		
@@ -45,9 +48,6 @@ public class VentanaInicial extends JFrame{
 		
 		obj_Panelvis = new Panel_vis();
 		add(obj_Panelvis, BorderLayout.CENTER);
-		
-		//obj_Panelper = new Panel_persona(this);
-		//add(obj_Panelper, BorderLayout.EAST);
 		
 		obj_Panelcon = new Panel_con();
 		add(obj_Panelcon, BorderLayout.SOUTH);
@@ -58,24 +58,23 @@ public class VentanaInicial extends JFrame{
 	
 	public void repintar () {
 		  
-		  //VentanaInicial.remove(obj_Panelvis);
-		  //VentanaInicial.add(Lista_clientes, BorderLayout.CENTER);
-	      //VentanaInicial.repintar();
 		
-	   	  obj_Panelvis.add(this.obj_Panelper);
-			
+	   	//obj_Panelvis.add(this.obj_Panelper);
+	   	add(obj_Panelper, BorderLayout.CENTER);  
+		
 	}
 	
-	public void  agregarPersona(String _nombre, String _apellido, int _cedula, int _edad, String _empresa, int _sueldo) {//_referenciapersona
-		Personas obj = new Personas(_nombre,_apellido,_cedula,_edad,_empresa,_sueldo);
-		listaPersona.put(_nombre,obj);
-		actualizarTabla();
+	/*public void  agregarPersona(String _nombre, String _apellido) {//_referenciapersona     , int _cedula, int _edad, String _empresa, int _sueldo
+		Personas obj = new Personas(_nombre,_apellido);   //,_cedula,_edad,_empresa,_sueldo
+		listaPersona.put(_nombre, obj);
+		//actualizarTabla();
 	}
+	
 	public void actualizarTabla() {
 		
-		obj_Lista_clientes.refrescarLista(listaPersona);
-		
-	}
+		Listac.refrescarLista(listaPersona);
+		JOptionPane.showMessageDialog(null,"Lista actuallizada. ","Mens",JOptionPane.INFORMATION_MESSAGE);
+	}*/
 
 	
 }

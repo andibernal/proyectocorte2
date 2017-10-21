@@ -6,7 +6,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.*;
 import javax.swing.border.Border;
-
+import caja_registradora.VentanaInicial;;
 public class Panel_persona extends JPanel implements ActionListener  {
 
 	private GridBagConstraints c;
@@ -25,11 +25,14 @@ public class Panel_persona extends JPanel implements ActionListener  {
 	private JTextField Jtf_edad;
 	private JTextField Jtf_empresa;
 	private JTextField Jtf_sueldo;
-	private VentanaInicial referenciaVentaPrincipal;
 	
-	public Panel_persona(VentanaInicial _referenciaVentanaPrincipal) { 
+	private Panel_men referencia;
 	
-		referenciaVentaPrincipal=_referenciaVentanaPrincipal;
+	
+	public Panel_persona(Panel_men _referenciaper) { 
+	
+		
+		referencia=_referenciaper;
 		
 	setLayout(new GridBagLayout());
 	Border borde1 = BorderFactory.createTitledBorder("Formulario");
@@ -169,10 +172,11 @@ public class Panel_persona extends JPanel implements ActionListener  {
 	
 
 	@Override
-	public void actionPerformed(ActionEvent e) {
+	public void actionPerformed(ActionEvent arg0) {
 		// TODO Auto-generated method stub
 		System.out.println("Hola ...");
-		referenciaVentaPrincipal.agregarPersona(Jtf_nombre.getText(), Jtf_apellido.getText(),Integer.parseInt(Jtf_cedula.getText()),Integer.parseInt(Jtf_edad.getText()),Jtf_empresa.getText(),Integer.parseInt(Jtf_sueldo.getText()));
+		referencia.agregarPersona(Jtf_nombre.getText(), Jtf_apellido.getText());  //,Integer.parseInt(Jtf_cedula.getText()),Integer.parseInt(Jtf_edad.getText()),Jtf_empresa.getText(),Integer.parseInt(Jtf_sueldo.getText())
+		//referenciaventanaprincipal.agregarPersona(Jtf_nombre.getText(), Jtf_apellido.getText());  //,Integer.parseInt(Jtf_cedula.getText()),Integer.parseInt(Jtf_edad.getText()),Jtf_empresa.getText(),Integer.parseInt(Jtf_sueldo.getText())
 		JOptionPane.showMessageDialog(null,"Persona agregada. ","Mensaje",JOptionPane.INFORMATION_MESSAGE);
 		
 	}
