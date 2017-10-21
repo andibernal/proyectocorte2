@@ -175,8 +175,7 @@ public class Panel_persona extends JPanel implements ActionListener  {
 	public void actionPerformed(ActionEvent arg0) {
 		// TODO Auto-generated method stub
 		System.out.println("Hola ...");
-		referencia.agregarPersona(Jtf_nombre.getText(), Jtf_apellido.getText());  //,Integer.parseInt(Jtf_cedula.getText()),Integer.parseInt(Jtf_edad.getText()),Jtf_empresa.getText(),Integer.parseInt(Jtf_sueldo.getText())
-		//referenciaventanaprincipal.agregarPersona(Jtf_nombre.getText(), Jtf_apellido.getText());  //,Integer.parseInt(Jtf_cedula.getText()),Integer.parseInt(Jtf_edad.getText()),Jtf_empresa.getText(),Integer.parseInt(Jtf_sueldo.getText())
+		referencia.agregarPersona(Jtf_nombre.getText(), Jtf_apellido.getText(),Integer.parseInt(Jtf_cedula.getText()),Integer.parseInt(Jtf_edad.getText()),Jtf_empresa.getText(),Integer.parseInt(Jtf_sueldo.getText()));    
 		JOptionPane.showMessageDialog(null,"Persona agregada. ","Mensaje",JOptionPane.INFORMATION_MESSAGE);
 		
 	}

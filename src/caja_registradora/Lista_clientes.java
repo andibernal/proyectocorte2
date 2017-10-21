@@ -10,7 +10,7 @@ public class Lista_clientes extends JPanel {
 	private DefaultTableModel referencia_tabla_model;
 	public String [] columnas = {"Nombre","Apellido","Cedula","Edad","Empresa","Sueldo"};
 	private Object[][] tableContents;
-	private JTable tabla_vehiculos;
+	private JTable tabla_clientes;
 	
 	public Lista_clientes() {
 		
@@ -20,8 +20,8 @@ public class Lista_clientes extends JPanel {
 		
 		tableContents = new Object[0][0];
 		referencia_tabla_model = new DefaultTableModel(tableContents, columnas);
-		tabla_vehiculos = new JTable(referencia_tabla_model);
-		this.add(new JScrollPane(tabla_vehiculos), BorderLayout.CENTER);
+		tabla_clientes = new JTable(referencia_tabla_model);
+		this.add(new JScrollPane(tabla_clientes), BorderLayout.CENTER);
 		
 		
 	}
@@ -49,7 +49,6 @@ public class Lista_clientes extends JPanel {
 				i++;
 			  }
 			
-
 			referencia_tabla_model.setDataVector(tableContents, columnas);
 	
 

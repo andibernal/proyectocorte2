@@ -136,9 +136,8 @@ public class Panel_men extends JPanel  implements ActionListener{
 			
 			obj_Panelper = new Panel_persona(this);
 			ventana = new VentanaInicial();
-			ventana.obj_Panelvis.setVisible(false);
 			ventana.getContentPane().add(obj_Panelper, BorderLayout.CENTER);
-			
+			ventana.obj_Panelvis.setVisible(false);
 			ventana.setVisible(true);
 			//ventana.repintar ();
 			
@@ -178,10 +177,10 @@ public class Panel_men extends JPanel  implements ActionListener{
 	}
 
 	
-	public void  agregarPersona(String _nombre, String _apellido) {//_referenciapersona     , int _cedula, int _edad, String _empresa, int _sueldo
-		Personas obj = new Personas(_nombre,_apellido);   //,_cedula,_edad,_empresa,_sueldo
+	public void  agregarPersona(String _nombre, String _apellido,  int _cedula, int _edad, String _empresa, int _sueldo) {//_referenciapersona   
+		Personas obj = new Personas(_nombre,_apellido,_cedula,_edad,_empresa,_sueldo);   //
 		listaPersona.put(_nombre, obj);
-		actualizarTabla();
+		//actualizarTabla();
 	}
 	
 	public void actualizarTabla() {
